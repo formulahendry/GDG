@@ -1,0 +1,28 @@
+{
+    "activeId": "{{guid}}",
+    "activeImg": "img.png",
+    "activeTitle": "{{int 10000 50000}}",
+    "activeSubTitle": "{{int 10000 50000}}",
+    "activeState": "{{int 10000 50000}}",
+    "activeSignUpStartTime": "{{date '2015-06-01' '2019-06-30'}}",
+    "activeSignUpEndTime": "{{date '2015-06-01' '2019-06-30'}}",
+    "activeStartTime": "{{date '2015-06-01' '2019-06-30'}}",
+    "activeEndTime": "{{date '2015-06-01' '2019-06-30'}}",
+    "activeAddress": "{{int 1 100}} {{street}}",
+    "activeGuests": [
+      {{#repeat 3}}
+      {
+        "id": {{@index}},
+        "name": "{{firstName}} {{lastName}}",
+        "work": "{{company}}",
+        "email": "{{email}}",
+        "dob": "{{date '1900' '2000' 'YYYY'}}",
+        "address": "{{int 1 100}} {{street}}",
+        "city": "{{city}}",
+        "optedin": {{boolean}}
+      }
+      {{/repeat}}
+    ],
+    "create_at": "{{date '2015-06-01' '2018-06-30'}}",
+    "update_at": "{{date '2018-06-01' '2019-06-30'}}"
+  }
