@@ -2,7 +2,7 @@ const MongoClient = require('mongodb').MongoClient;
 const fs = require('fs');
 const dummyjson = require('dummy-json');
 
-async function genData(count) {
+async function genData(count, collectionName) {
     // Connection URL
     const url = 'mongodb://*****';
 
@@ -14,8 +14,8 @@ async function genData(count) {
     console.log("Connected successfully to server");
     const db = client.db(dbName);
 
-    let collection = db.collection('activity');
-    var template = fs.readFileSync('./data/activity.hbs', {encoding: 'utf8'});
+    const collection = db.collection(collectionName);
+    const template = fs.readFileSync(`./data/${collectionName}.hbs`, {encoding: 'utf8'});
     for (let i = 0; i < count; i++) {
         const result = dummyjson.parse(template);
         await collection.insertOne(JSON.parse(result));
@@ -26,6 +26,6 @@ async function genData(count) {
     client.close();
 }
 
-genData(3);
+genData(4, "activity");
 
 
